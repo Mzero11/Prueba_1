@@ -1,33 +1,26 @@
-function OrdenarNumeros() {
+function ordenarNumeros() {
     const arrayNum = [];
+
     for (let i = 0; i < 5; i++) {
-        inNumero(arrayNum);
+        const num = ingresarNumero();
+        arrayNum.push(num);
     }
-    mostrar(arrayNum);
+
+    arrayNum.sort((a, b) => a - b);
+
+    alert("Números ordenados: " + arrayNum.join(', '));
 }
 
-function inNumero(arrayNum) {
-    var num = prompt("Ingrese un numero");
-    while (isNaN(num) || num == "") {
-        num = prompt("No ha ingresado un numero");
-    }
-    arrayNum.push(Number(num));
+function ingresarNumero() {
+    let num;
+    do {
+        num = prompt("Ingrese un número");
+    } while (isNaN(num) || num.trim() === "");
+
+    return Number(num);
 }
 
-function mostrar(arrayNum) {
-    for (var j = 0; j < arrayNum.length - 1; j++) {
-        for (var i = 0; i < arrayNum.length - 1; i++) {
-            if (arrayNum[i] > arrayNum[i + 1]) {
-                var cambio = arrayNum[i + 1];
-                arrayNum[i + 1] = arrayNum[i];
-                arrayNum[i] = cambio;
-            }
-        }
-    }
-    alert("Números ordenados: " + arrayNum);
-}
-
-OrdenarNumeros();
+ordenarNumeros();
         }
     }
     alert(arrayNum);
